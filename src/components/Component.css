@@ -1,0 +1,282 @@
+/*
+ * src/components/Component.css
+ * ------------------------------------------------
+ */
+
+/* --- Balance and Income/Expense Styles --- */
+
+.balance-box {
+  text-align: left; /* Align balance to the left */
+  margin-bottom: 30px;
+  padding: 0;
+  border-bottom: none;
+}
+
+.balance-box h4 {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.balance-box h2 {
+    font-size: 2.5rem; /* Large font for balance (Key Visual) */
+    font-weight: 700;
+}
+
+/* Income and Expense Display Container - Card Style */
+.inc-exp-container {
+  background-color: var(--bg-card);
+  box-shadow: var(--shadow);
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  border-radius: 12px; /* Smoother corners */
+  font-size: 0.9rem;
+}
+
+.inc-exp-container > div {
+  flex: 1;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.inc-exp-container h4 {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+.divider {
+  width: 1px;
+  background-color: #f0f0f0;
+  margin: 0 10px;
+}
+
+.money {
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  margin: 5px 0;
+}
+
+.money.plus {
+  color: var(--income-color);
+  font-weight: 600;
+}
+
+.money.minus {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+/* --- History and Form Headers --- */
+h3 {
+  border-bottom: none; /* Removed line for cleaner look */
+  padding-bottom: 5px;
+  margin: 30px 0 15px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+/* --- Form Styles --- */
+.form-style {
+    margin-bottom: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* 1. Transaction Type Toggle Buttons */
+.transaction-type-toggle {
+    display: flex;
+    background-color: #e8e8e8;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    padding: 3px;
+    transition: background-color 0.3s;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-light);
+    background-color: transparent;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+}
+
+.toggle-btn.active-income {
+    background-color: var(--income-color);
+    color: var(--bg-card);
+    box-shadow: 0 4px 8px rgba(76, 209, 55, 0.4);
+}
+
+.toggle-btn.active-expense {
+    background-color: var(--accent-color);
+    color: var(--bg-card);
+    box-shadow: 0 4px 8px rgba(255, 107, 129, 0.4);
+}
+
+
+/* 2. Floating Label Input Styling */
+.form-control {
+  margin: 25px 0;
+  position: relative;
+}
+
+.form-control label {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+    font-weight: 500;
+    color: var(--text-light);
+    font-size: 1rem; /* Start size */
+    pointer-events: none; /* Allows click through the label */
+    transition: all 0.2s ease-out;
+    background-color: var(--bg-card);
+    padding: 0 4px;
+}
+
+.form-control input {
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  padding: 16px 14px 10px; /* Adjusted padding for better look with floating label */
+  font-size: 1rem;
+  width: 100%;
+}
+
+.form-control input:focus {
+    border-color: var(--primary-color); 
+    box-shadow: 0 0 0 1px var(--primary-color); 
+    outline: none;
+}
+
+/* Floating label effect (moves up when input is focused or has content) */
+.form-control input:focus + label,
+.form-control input:not(:placeholder-shown) + label {
+    top: 0;
+    left: 10px;
+    font-size: 0.75rem; /* Smaller size when floating */
+    color: var(--primary-color);
+    transform: translateY(-50%);
+    /* Ensure the label has background color to hide the input border underneath */
+    background-color: var(--bg-card); 
+}
+
+
+/* 3. Submit Button Colors */
+.submit-btn {
+    /* Base button styles defined in .btn class */
+    font-size: 1.1rem;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.submit-btn.btn-expense {
+    background-color: var(--accent-color);
+    box-shadow: 0 4px 10px rgba(255, 107, 129, 0.4);
+}
+.submit-btn.btn-expense:hover {
+    background-color: #e05e70;
+}
+
+.submit-btn.btn-income {
+    background-color: var(--income-color);
+    box-shadow: 0 4px 10px rgba(76, 209, 55, 0.4);
+}
+.submit-btn.btn-income:hover {
+    background-color: #42b834;
+}
+/* --- Transaction List Styles (Card Look) --- */
+
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list-item {
+  background-color: var(--bg-card);
+  /* The shadow gives the card-like elevation */
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 15px; /* More padding for a bigger touch area */
+  margin: 12px 0;
+  border-radius: 10px; 
+  /* Remove the colored border effect */
+  border-right: none !important;
+  
+  transition: transform 0.2s ease; 
+}
+
+.list-item:hover {
+    transform: scale(1.01); /* Subtle lift instead of slide */
+    box-shadow: var(--shadow);
+}
+
+/* No visible border-right needed for GPay look */
+.list-item.plus, .list-item.minus {
+  border-right: none;
+}
+
+/* Use color on the text itself */
+.list-item span {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Apply colors directly to the amount text */
+.list-item.plus span {
+    color: var(--income-color);
+}
+.list-item.minus span {
+    color: var(--accent-color);
+}
+
+.list-item div:first-child {
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+
+/* Delete Button Styles (Now looks like a clean icon on hover) */
+.delete-btn {
+  cursor: pointer;
+  background-color: transparent; /* Transparent button */
+  border: none;
+  color: var(--text-light); /* Dark color icon */
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: 5px;
+  position: absolute;
+  top: 50%;
+  right: -5px; /* Slide in from the right */
+  left: auto; /* Override previous 'left: 0' */
+  transform: translate(100%, -50%); /* Start off-screen to the right */
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.list-item:hover .delete-btn {
+  opacity: 1; 
+  transform: translate(-10px, -50%); /* Slide slightly onto the screen from the right */
+}
+
+.no-transactions {
+    text-align: center;
+    color: var(--text-light);
+    margin: 20px 0;
+    font-style: italic;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+}

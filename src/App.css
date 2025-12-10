@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* --- MODERN COLOR PALETTE --- */
+:root {
+  --primary-color: #5d5dff; 
+  --accent-color: #ff6b81;  
+  --income-color: #4cd137;  
+  --text-dark: #202124;     
+  --text-light: #5f6368;    
+  --bg-light: #f7f9fb;      
+  --bg-card: #ffffff;       
+  --shadow: 0 1px 3px 0 rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15); 
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+}
+
+.container {
+  background-color: var(--bg-card);
+  padding: 20px;
+  box-shadow: none; 
+  width: 100%; 
+  min-height: 100vh;
+  /* MOBILE MAX-WIDTH (kept narrow for phones) */
+  max-width: 420px; 
+  transition: all 0.3s ease-in-out;
+}
+
+h1 {
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+/* * RESPONSIVENESS (Laptop/Desktop Fit) 
+ * We are now using 1000px max-width for screens >= 768px.
+ */
+@media (min-width: 768px) {
+    body {
+        align-items: center; 
+        padding: 20px;
+    }
+    .container {
+        min-height: auto;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        padding: 40px; 
+        /* --- KEY CHANGE: Drastically increased width for desktop --- */
+        max-width: 1400px; 
+    }
+}
